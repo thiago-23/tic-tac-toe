@@ -2,33 +2,45 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Declaration of the variables
     let boxes = document.getElementsByClassName('position');
-    let gameStatus = document.getElementById('gameStatus');
-    let restart = document.getElementById('restart');
+    // Status game indicates the players turn
+    let gameStatus = document.getElementById("gameStatus");
+    let restart = document.getElementById("restart");
+    
     // Create a array of empty value
     let boxValue = Array(9).fill(null);
-    // // Declare currentPlayer as a global variable to start the game 
+    // Declare currentPlayer as a global variable to start the game 
     let currentPlayer = "X";
+    let start = false;
 
-    console.log(boxValue)
+    runGame();
 
+    /**
+     * This function initialize the game
+     */
+    function runGame() {
+        // Convert the HTMLColletion to an Array 
+        let boxesArray = Array.from(boxes);
+        
+        // Add click event listeners to each position 
+        boxesArray.forEach(position => position.addEventListener("click", positionClicked))
+        
+        // Display initial game status text indicating the current player's turn
+        gameStatus.textContent = `It's ${currentPlayer} turn`;
+    }
+
+    function positionClicked() {
+
+    }
+
+    function changePlayer() {
+
+    }
+
+    function updatePosition() {
+
+    }
+
+    function restartGame() {
+
+    }
 });
-
-function runGame() {
-
-}
-
-function positionClicked() {
-
-}
-
-function changePlayer() {
-
-}
-
-function updatePosition() {
-
-}
-
-function restartGame() {
-
-}
