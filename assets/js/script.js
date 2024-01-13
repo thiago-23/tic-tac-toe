@@ -2,12 +2,14 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Declaration of the variables
     let boxes = document.getElementsByClassName('position');
+
     // Status game indicates the players turn
     let gameStatus = document.getElementById("gameStatus");
     let restart = document.getElementById("restart");
     
     // Create a array of empty value
     let boxValue = Array(9).fill(null);
+
     // Declare currentPlayer as a global variable to start the game 
     let currentPlayer = "X";
     let start = false;
@@ -41,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         //Update the position
         updatePosition(e.target, id);
+
         // envolke the next player turn
         changePlayer();
     }
@@ -60,6 +63,21 @@ document.addEventListener("DOMContentLoaded", function() {
      */
     function updatePosition(position, id ) {
         position.textContent = currentPlayer;
+
+    }
+    const winningCombos = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+    ];
+
+    
+    function winnerPlayer() {
 
     }
 
