@@ -75,7 +75,6 @@ document.addEventListener("DOMContentLoaded", function() {
         [0, 4, 8],
         [2, 4, 6]
     ];
-
     
     function winnerPlayer() {
 
