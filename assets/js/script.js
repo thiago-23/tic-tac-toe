@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function runGame() {
         // Convert the HTMLColletion to an Array 
         let boxesArray = Array.from(boxes);
-        
+
         // Add click event listeners to each position 
         boxesArray.forEach(position => position.addEventListener("click", positionClicked))
         
@@ -28,15 +28,27 @@ document.addEventListener("DOMContentLoaded", function() {
         gameStatus.textContent = `It's ${currentPlayer} turn`;
     }
 
-    function positionClicked() {
+    /**
+     * This function handle a position clicked on the Game box
+     * @param {*} e 
+     */
+    function positionClicked(e) {
+        const id = e.target.id
 
+        if(!boxValue[id]){
+            boxValue[id] =currentPlayer
+            e.target.innerText = currentPlayer
+        }
     }
+    runGame()
 
     function changePlayer() {
 
     }
 
-    function updatePosition() {
+    function updatePosition(position, id ) {
+        boxValue[id] = currentPlayer;
+        id.textContent = currentPlayer;
 
     }
 
