@@ -30,25 +30,36 @@ document.addEventListener("DOMContentLoaded", function() {
 
     /**
      * This function handle a position clicked on the Game box
-     * @param {*} e 
+     * @param {*} e - The click event 
      */
     function positionClicked(e) {
         const id = e.target.id
-
+        // Check the position is not empty and update the current player
         if(!boxValue[id]){
-            boxValue[id] =currentPlayer
-            e.target.innerText = currentPlayer
+            boxValue[id] =currentPlayer;
+            e.target.innerText = currentPlayer;
         }
+        //Update the position
+        updatePosition(e.target, id);
+        // envolke the next player turn
+        changePlayer();
     }
-    runGame()
 
+    /**
+     * This function switches the cuurent player
+     */
     function changePlayer() {
-
+        currentPlayer = (currentPlayer == "X") ? "O" : "X";
+        gameStatus.textContent = `It's ${currentPlayer} turn`;
     }
 
+    /**
+     * This function updates the position on the game with the current player turn
+     * @param {HTMLDivElement} position 
+     * @param {string} id 
+     */
     function updatePosition(position, id ) {
-        boxValue[id] = currentPlayer;
-        id.textContent = currentPlayer;
+        position.textContent = currentPlayer;
 
     }
 
