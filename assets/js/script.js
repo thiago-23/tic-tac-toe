@@ -91,6 +91,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function restartGame() {
-
+        boxValue = ["", "", "", "", "", "", "", "", ""];
+        start = true;
+        currentPlayer = "X";
+        boxes.forEach(position => {
+            position.textContent = "";
+            start = true;
+        });
+        updatePosition();
     }
 });
