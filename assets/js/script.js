@@ -34,18 +34,18 @@ document.addEventListener("DOMContentLoaded", function() {
      * This function handle a position clicked on the Game box
      * @param {*} e - The click event 
      */
-    function positionClicked(e) {
-        const id = e.target.id
-        // Check the position is not empty and update the current player
-        if(!boxValue[id]){
-            boxValue[id] =currentPlayer;
-            e.target.innerText = currentPlayer;
-        }
-        //Update the position
-        updatePosition(e.target, id);
+    function positionClicked() {
+        const boxId = this.getAttribute("boxId");
 
-        // envolke the next player turn
-        changePlayer();
+        if (boxValue[boxId] === "null" && start) {
+            boxValue[boxId] = currentPlayer;
+            this.textContent = currentPlayer;
+            checkWinner();
+            if (start) {
+                changePlayer();
+                updatePosition();
+            }
+        }
     }
 
     /**
@@ -65,19 +65,33 @@ document.addEventListener("DOMContentLoaded", function() {
         position.textContent = currentPlayer;
 
     }
-    const winningCombos = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6]
-    ];
+    
     
     function winnerPlayer() {
+        const winningCombos = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+        ];
 
+        for (let combo of winningCombos) {
+            const [a, b, c] = combo;
+            if (boxValue[a] !== "null" && boxValue[a] === boxValue[b] && boxValue[a] === boxValue[c]) {
+                gameStatus.textContent = `Uhuuu ${currentPlayer} is the winner!`;
+                start = false;
+                return;
+            }
+        }
+
+        if (!boxValue.includes("null") && start) {
+            gameStatus.textContent = "Awnn it's a Draw!";
+            start = false;
+        }
     }
 
     function restartGame() {
