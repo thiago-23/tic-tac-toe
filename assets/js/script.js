@@ -14,13 +14,14 @@ document.addEventListener("DOMContentLoaded", function() {
     let currentPlayer = "X";
     let start = true;
 
+    //Initialize the game
     runGame();
 
     /**
-     * This function initialize the game
+     * This function initialize the game  
      */
     function runGame() {
-        // Add click event listeners to each position 
+        // Add click event listeners to each position on the board and restart button
         boxes.forEach(position => position.addEventListener("click", positionClicked))
         restart.addEventListener("click", restartGame);
         updatePosition();        
@@ -28,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     /**
      * This function handle a position clicked on the Game box
-     * @param {*} e - The click event 
      */
     function positionClicked() {
         const boxId = this.getAttribute("boxId");
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     /**
-     * This function switches the cuurent player
+     * This function switches the current player
      */
     function changePlayer() {
         currentPlayer = currentPlayer === "X" ? "O" : "X";
@@ -53,8 +53,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     /**
      * This function updates the position on the game with the current player turn
-     * @param {HTMLDivElement} position 
-     * @param {string} id 
      */
     function updatePosition() {
         // Display initial game status text indicating the current player's turn
@@ -62,7 +60,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     }
     
-    
+    /**
+     * Function to check for a winner or a draw
+     * @returns Returns the result
+     */
     function winnerPlayer() {
         const winningCombos = [
             [0, 1, 2],
@@ -89,7 +90,10 @@ document.addEventListener("DOMContentLoaded", function() {
             start = false;
         }
     }
-
+    
+    /**
+     * Function to restart the game
+     */
     function restartGame() {
         boxValue = ["", "", "", "", "", "", "", "", ""];
         start = true;
