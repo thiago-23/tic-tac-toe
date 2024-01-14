@@ -1,18 +1,18 @@
 // Wait for the DOM to finish loading before running the game
 document.addEventListener("DOMContentLoaded", function() {
     // Declaration of the variables
-    let boxes = document.getElementsByClassName('position');
+    const boxes = document.querySelectorAll(".position");
 
     // Status game indicates the players turn
     let gameStatus = document.getElementById("gameStatus");
     let restart = document.getElementById("restart");
     
     // Create a array of empty value
-    let boxValue = Array(9).fill(null);
+    let boxValue = ["", "", "", "", "", "", "", "", ""];
 
     // Declare currentPlayer as a global variable to start the game 
     let currentPlayer = "X";
-    let start = false;
+    let start = true;
 
     runGame();
 
@@ -20,14 +20,10 @@ document.addEventListener("DOMContentLoaded", function() {
      * This function initialize the game
      */
     function runGame() {
-        // Convert the HTMLColletion to an Array 
-        let boxesArray = Array.from(boxes);
-
         // Add click event listeners to each position 
-        boxesArray.forEach(position => position.addEventListener("click", positionClicked))
-        
-        // Display initial game status text indicating the current player's turn
-        gameStatus.textContent = `It's ${currentPlayer} turn`;
+        boxes.forEach(position => position.addEventListener("click", positionClicked))
+        restart.addEventListener("click", restartGame);
+        updatePosition();        
     }
 
     /**
@@ -37,10 +33,10 @@ document.addEventListener("DOMContentLoaded", function() {
     function positionClicked() {
         const boxId = this.getAttribute("boxId");
 
-        if (boxValue[boxId] === "null" && start) {
+        if (boxValue[boxId] === "" && start) {
             boxValue[boxId] = currentPlayer;
             this.textContent = currentPlayer;
-            checkWinner();
+            winnerPlayer();
             if (start) {
                 changePlayer();
                 updatePosition();
@@ -52,8 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
      * This function switches the cuurent player
      */
     function changePlayer() {
-        currentPlayer = (currentPlayer == "X") ? "O" : "X";
-        gameStatus.textContent = `It's ${currentPlayer} turn`;
+        currentPlayer = currentPlayer === "X" ? "O" : "X";
     }
 
     /**
@@ -61,8 +56,9 @@ document.addEventListener("DOMContentLoaded", function() {
      * @param {HTMLDivElement} position 
      * @param {string} id 
      */
-    function updatePosition(position, id ) {
-        position.textContent = currentPlayer;
+    function updatePosition() {
+        // Display initial game status text indicating the current player's turn
+        gameStatus.textContent = start ? `It's ${currentPlayer}'s turn` : "";
 
     }
     
@@ -81,14 +77,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
         for (let combo of winningCombos) {
             const [a, b, c] = combo;
-            if (boxValue[a] !== "null" && boxValue[a] === boxValue[b] && boxValue[a] === boxValue[c]) {
+            if (boxValue[a] !== "" && boxValue[a] === boxValue[b] && boxValue[a] === boxValue[c]) {
                 gameStatus.textContent = `Uhuuu ${currentPlayer} is the winner!`;
                 start = false;
                 return;
             }
         }
 
-        if (!boxValue.includes("null") && start) {
+        if (!boxValue.includes("") && start) {
             gameStatus.textContent = "Awnn it's a Draw!";
             start = false;
         }
