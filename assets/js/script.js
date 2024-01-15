@@ -4,15 +4,19 @@ document.addEventListener("DOMContentLoaded", function() {
     const boxes = document.querySelectorAll(".position");
 
     // Status game indicates the players turn
-    let gameStatus = document.getElementById("gameStatus");
-    let restart = document.getElementById("restart");
+    const gameStatus = document.getElementById("gameStatus");
+    const restart = document.getElementById("restart");
+
+    let scoreXDisplay = document.getElementById("scoreX");
+    let scoreODisplay = document.getElementById("scoreO");
     
     // Create a array of empty value
     let boxValue = ["", "", "", "", "", "", "", "", ""];
 
-    // Declare currentPlayer as a global variable to start the game 
+    // Declare variables to track the current player, game state, and scores
     let currentPlayer = "X";
     let start = true;
+    let scores = { X: 0, O: 0 };
 
     //Initialize the game
     runGame();
@@ -57,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function() {
     function updatePosition() {
         // Display initial game status text indicating the current player's turn
         gameStatus.textContent = start ? `It's ${currentPlayer}'s turn` : "";
-
     }
     
     /**
@@ -80,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const [a, b, c] = combo;
             if (boxValue[a] !== "" && boxValue[a] === boxValue[b] && boxValue[a] === boxValue[c]) {
                 gameStatus.textContent = `Uhuuu ${currentPlayer} is the winner!`;
+                updateScores();
                 start = false;
                 return;
             }
@@ -89,6 +93,15 @@ document.addEventListener("DOMContentLoaded", function() {
             gameStatus.textContent = "Awnn it's a Draw!";
             start = false;
         }
+    }
+
+    /**
+     * This function update and display the player scores
+     */
+    function updateScores() {
+        scores[currentPlayer]++;
+        scoreXDisplay.textContent = `Score X: ${scores.X}`;
+        scoreODisplay.textContent = `Score O: ${scores.O}`;
     }
     
     /**
