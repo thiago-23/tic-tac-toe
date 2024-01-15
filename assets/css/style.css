@@ -1,5 +1,5 @@
 /* Google fonts import */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;1,300;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
 
 /* Asterisk wildcard selector to override default styles added by the browser */
 * {
@@ -16,7 +16,7 @@ body {
     flex-direction: column;
     background-color: #989784;
     justify-content: center;
-    font-family: Poppins, sans-serif;
+    font-family: Lemon;
 }
 
 #container {
@@ -43,6 +43,7 @@ h1, h2 {
 #score {
     gap: 40px;
     font-size: 25px;
+    padding-top: 25px;
  }
 
 .position {
@@ -68,6 +69,10 @@ h1, h2 {
     border-bottom: none;
 }
 
+h2#gameStatus {
+    padding-bottom: 20px;
+}
+
 button {
     padding: 10px;
     border-radius: 5px;
@@ -75,4 +80,32 @@ button {
     color: #ffffff;
     font-size: 18px;
     border: none;
+}
+
+/* Media query: Mobiles (max 700px )*/
+@media screen and (max-width: 700px) {
+
+    h1 {
+        font-size: 33px;
+    }
+
+    #score {
+        gap: 40px;
+        font-size: 19px;
+        padding-top: 20px;
+    }
+    .position {
+        height:87px;
+        width: 80px;
+    }
+    
+    div#gameBox {
+    height: 281px;
+    width: 240px;
+    }
+
+    h2#gameStatus {
+        font-size: 29px;
+        padding-bottom: 20px;
+    }
 }
