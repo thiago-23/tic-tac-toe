@@ -6,10 +6,19 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: Poppins, sans-serif;
 }
 
 /* General Game Styles  */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #989784;
+    justify-content: center;
+    font-family: Poppins, sans-serif;
+}
+
 #container {
     padding: 40px;
     height: 100vh;
@@ -17,10 +26,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #989784;
 }
 
-h1 {
+h1, h2 {
     font-size: 50px;
 }
 
@@ -31,6 +39,11 @@ h1 {
     padding: 10px 0 10px 0;
     margin: 40px 0 ;
 }
+
+#score {
+    gap: 40px;
+    font-size: 25px;
+ }
 
 .position {
     display: flex;
