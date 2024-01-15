@@ -51,8 +51,21 @@ h1, h2 {
     width: 120px;
     align-items: center;
     justify-content: center;
-    border: 2px solid;
+    border-radius: 2px;
     background-color: rgb(108, 118, 127);
+    font-size: 50px;
+    border-right: 6px solid;
+    border-bottom: 6px solid;
+}
+
+/* Removes border right for each 3th child */
+.position:nth-child(3n) {
+    border-right: none;
+}
+
+/* Removes border bottom after 6th child */
+.position:nth-child(6) ~ .position{
+    border-bottom: none;
 }
 
 button {
