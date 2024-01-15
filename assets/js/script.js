@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Add click event listeners to each position on the board and restart button
         boxes.forEach(position => position.addEventListener("click", positionClicked))
         restart.addEventListener("click", restartGame);
+        restart.style.visibility = "hidden";
         updatePosition();        
     }
 
@@ -83,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const [a, b, c] = combo;
             if (boxValue[a] !== "" && boxValue[a] === boxValue[b] && boxValue[a] === boxValue[c]) {
                 gameStatus.textContent = `Uhuuu ${currentPlayer} is the winner!`;
+                restart.style.visibility = "visible";
                 updateScores();
                 start = false;
                 return;
@@ -91,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (!boxValue.includes("") && start) {
             gameStatus.textContent = "Awnn it's a Draw!";
+            restart.style.visibility = "visible";
             start = false;
         }
     }
@@ -108,6 +111,7 @@ document.addEventListener("DOMContentLoaded", function() {
      * Function to restart the game
      */
     function restartGame() {
+        restart.style.visibility = "hidden";
         boxValue = ["", "", "", "", "", "", "", "", ""];
         start = true;
         currentPlayer = "X";
