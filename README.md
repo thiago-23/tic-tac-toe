@@ -12,12 +12,12 @@ Join us in the world of Tic-Tac-Toe, where the experience of virtual game with t
 
 Link to the live site here: [Tic Tac Toe](https://thiago-23.github.io/tic-tac-toe/)
 
-- - -
+---
 
 # Contents 
 * [User Experience (UX)](#user-experience-ux)
     * [User Stories](#user-stories)
-
+    
 * [Languages Used](#languages-used)
 
 * [Design](#design)
@@ -40,9 +40,6 @@ Link to the live site here: [Tic Tac Toe](https://thiago-23.github.io/tic-tac-to
 * [Credits](#credits)
   * [Media](#media)
   * [Reference Material](#reference-material)
-
-* [Acknowledgements](#acknowledgements)
-
 
 ---
 
@@ -116,6 +113,7 @@ User Interface
 The accessibility was confirmed by running it through lighthouse in devtools.
 
 ![Tic Tac Toe accessibility](testing/accessibility.png)
+
 --- 
 
 ## Testing
@@ -202,7 +200,7 @@ After asking friends and family to test the deploy Tic Tac Toe Game Project, it 
     * It was to small and hard to see.
     * Fixed by changing to Lemon font
 
-
+--- 
 
 ## Credits
 ## Media
@@ -213,6 +211,7 @@ After asking friends and family to test the deploy Tic Tac Toe Game Project, it 
 * [Mockup Screenshot Generator](https://ui.dev/amiresponsive)
 
 ---
+
 ## Reference Material
 
 * [Love Maths Walkthrough project](https://github.com/Code-Institute-Solutions/love-maths-2.0-sourcecode)
