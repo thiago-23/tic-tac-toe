@@ -54,16 +54,15 @@ Link to the live site here: [Tic Tac Toe](https://thiago-23.github.io/tic-tac-to
 
 ### User Goals
 
-* As a user, I want to easily understand the rules of the game.
 * As a user, I want a visually pleasing game interface.
 * As a user, I want to be able to play the game on different devices seamlessly.
 * As a user, I want the game to provide clear feedback on the winner or a draw.
 
 ### First-Time Player Goals
 
-* As a first-time player, I want to quickly grasp the rules of the game.
+* As a first-time player, I want to quickly identify whose turn first.
 * As a first-time player, I want a simple and intuitive interface to enjoy the game.
-* As a first-time player,
+* As a first-time player, I want the game to be easy to navigate.
 
 
 ### Returning Visitor Goals
@@ -98,8 +97,17 @@ Game Rules
 * If the grid is filled without a winner, the game is a draw.
 
 User Interface
-* Clear and responsive game board with visual indicators for player turns.
-* A Play again button to reset the game and start a new game.
+
+![Game interface](docs/tic-tac.png)
+
+![Game interface](docs/game.png)
+
+1. A game title name indicates Tic Tac Toe.
+2. A Score board displaying the game score.
+3. Clear and responsive game board with visual 3x3 grid. 
+4. A message indicators for player turns.
+5. A message indicators for the game results.
+6. A Play again button to reset the game and start a new game.
 
 ---
 
@@ -120,16 +128,20 @@ The accessibility was confirmed by running it through lighthouse in devtools.
 
 ### W3C Validator
 
-W3C Markup Validator were used to validate each page of the project to ensure there were no syntax errors.
+W3C Markup Validator were used to validate each code of the project to ensure there were no syntax errors.
 
+### W3C HTML Validator
+Index Page
+
+![Index Page HTML](testing/html-validator.png)
 
 ### W3C CSS Validator
 
 CSS - No syntax errors were found using Jigsaw css validator.
 
-[Jigsaw Validator](https://jigsaw.w3.org/css-validator/)
+[Jigsaw Validator](https://jigsaw.w3.org/css-validator)
 
-![CSS Page](testing/css-validator.png)
+![CSS Page](testing/js-validator.png)
 
 ### JavaScript Validator
 ![Jshint Validator JavaScript]()
