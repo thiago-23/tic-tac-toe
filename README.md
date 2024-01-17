@@ -210,7 +210,10 @@ After asking friends and family to test the deploy Tic Tac Toe Game Project, it 
     * Fixed by change the font size.
 3. Game font family:
     * It was to small and hard to see.
-    * Fixed by changing to Lemon font
+    * Fixed by changing to Lemon font.
+4. HTML Validator errors
+    * I was displaying an attribute name not allowed. 
+    * Fixed by Modify HTML and JS attribute name to id. 
 
 --- 
 
