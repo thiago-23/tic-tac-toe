@@ -36,10 +36,10 @@ document.addEventListener("DOMContentLoaded", function() {
      * This function handle a position clicked on the Game box
      */
     function positionClicked() {
-        const boxId = this.getAttribute("boxId");
+        const id = this.getAttribute("id");
 
-        if (boxValue[boxId] === "" && start) {
-            boxValue[boxId] = currentPlayer;
+        if (boxValue[id] === "" && start) {
+            boxValue[id] = currentPlayer;
             this.textContent = currentPlayer;
             winnerPlayer();
             if (start) {
