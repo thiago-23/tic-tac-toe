@@ -111,6 +111,11 @@ User Interface
 
 ---
 
+### Features Implementations
+* Multiplayer mode for players to compete against each other.
+* Sound effects to enhance the gaming atmosphere.
+* Customizable game boards and themes.
+
 ### Accessibility
 
 * The website is accessible friendly by using:
